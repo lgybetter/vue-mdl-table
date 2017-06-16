@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<table>
-			<table-head :columns="columns" :datas="datas"></table-head>
-			<table-body :columns="columns" :datas="datas"></table-body>
+			<table-head :columns="columns" :datas="datas" :canExpanded="canExpanded"></table-head>
+			<table-body :columns="columns" :datas="datas" :canExpanded="canExpanded"></table-body>
 		</table>
 	</div>
 </template>
@@ -17,6 +17,7 @@
 			'table-body': tableBody
 		},
 		props: {
+			canExpanded: Boolean,
 			columns: Array,
 			datas: Array
 		},

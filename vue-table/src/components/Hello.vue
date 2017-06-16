@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-		<z-table :columns="columns" :datas="datas"></z-table>
+		<z-table :canExpanded="true" :columns="columns" :datas="datas"></z-table>
   </div>
 </template>
 
@@ -13,6 +13,12 @@ export default {
 	data () {
 		return {
 			columns: [
+				{
+					type: 'expand',
+					render: (h, params) => {
+						return h('div', {}, 'test');
+					}
+				},
 				{
 					title: '日期',
 					key: 'date'
