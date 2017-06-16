@@ -2,7 +2,7 @@
 	<tbody>
 		<template v-for="(data, index) in datas">
 			<tr>
-				<td v-if="canexpanded"><button @click="toggleExpand(index)">></button></td>
+				<td v-if="canexpanded"><button @click="toggleExpand(index)">{{expandIndex === index && canexpanded ? '▼': '►'}}</button></td>
 				<td v-for="column in columns">
 					<cell :column="column" :data="data" :index="index"></cell>
 				</td>
