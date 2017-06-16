@@ -2,7 +2,7 @@
 	<div>
 		<table>
 			<table-head :columns="columns" :datas="datas" :canExpanded="canExpanded"></table-head>
-			<table-body :columns="columns" :datas="datas" :canExpanded="canExpanded"></table-body>
+			<table-body :columns="columns" :datas="datas" :canExpanded="canExpanded" :expand="expand" ></table-body>
 		</table>
 	</div>
 </template>
@@ -17,12 +17,18 @@
 			'table-body': tableBody
 		},
 		props: {
-			canExpanded: Boolean,
 			columns: Array,
-			datas: Array
+			datas: Array,
+			expand: Object
+		},
+		created () {
+			if (this.expand) {
+				this.canExpanded = true;
+			}
 		},
 		data () {
 			return {
+				canExpanded: false
 			}
 		}
 	}
