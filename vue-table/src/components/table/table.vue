@@ -1,10 +1,15 @@
+<style>
+	.w-table { width: 100%; }
+	.w-table th { padding: 10px 0 10px 20px; height: 0; min-width: 80px; }
+	.w-table th:first-of-type { min-width: 80px; }
+  .w-table td{ padding: 0 0 0 20px; height: 0; }
+</style>
+
 <template>
-	<div>
-		<table>
-			<table-head :columns="columns" :datas="datas" :canExpanded="canExpanded"></table-head>
-			<table-body :columns="columns" :datas="datas" :canExpanded="canExpanded" :expand="expand" ></table-body>
-		</table>
-	</div>
+	<table class="w-table" border>
+		<thead is="table-head" :columns="columns" :datas="datas" :canexpanded="canexpanded"></thead>
+		<tbody is="table-body" :columns="columns" :datas="datas" :canexpanded="canexpanded" :expand="expand" ></tbody>
+	</table>
 </template>
 
 <script>
@@ -23,12 +28,12 @@
 		},
 		created () {
 			if (this.expand) {
-				this.canExpanded = true;
+				this.canexpanded = true;
 			}
 		},
 		data () {
 			return {
-				canExpanded: false
+				canexpanded: false
 			}
 		}
 	}

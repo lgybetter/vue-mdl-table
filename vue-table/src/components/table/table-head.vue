@@ -1,7 +1,7 @@
 <template>
 	<thead>
 		<tr>
-			<th v-if="canExpanded"></th>
+			<th v-if="canexpanded"></th>
 			<th v-for="column in columns">
 				{{column.title}}
 			</th>
@@ -14,7 +14,7 @@
 		props: {
 			columns: Array,
 			datas: Array,
-			canExpanded: Boolean
+			canexpanded: Boolean
 		}
 	}
 

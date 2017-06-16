@@ -2,13 +2,13 @@
 	<tbody>
 		<template v-for="(data, index) in datas">
 			<tr>
-				<td v-if="canExpanded"><button @click="toggleExpand(index)">></button></td>
+				<td v-if="canexpanded"><button @click="toggleExpand(index)">></button></td>
 				<td v-for="column in columns">
 					<cell :column="column" :data="data" :index="index"></cell>
 				</td>
 			</tr>
 			<tr>
-				<td v-if="expandIndex === index && canExpanded">
+				<td v-if="expandIndex === index && canexpanded" :colspan="colspan">
 					<render :render="expand.render"></render>
 				</td>
 			</tr>
@@ -23,7 +23,7 @@
 		props: {
 			columns: Array,
 			datas: Array,
-			canExpanded: Boolean,
+			canexpanded: Boolean,
 			expand: {
 				type: Object,
 				default () {
@@ -33,7 +33,8 @@
 		},
 		data () {
 			return {
-				expandIndex: -1
+				expandIndex: -1,
+				colspan: this.columns.length + 1
 			}
 		},
 		components: {
@@ -42,11 +43,7 @@
 		},
 		methods: {
 			toggleExpand (index) {
-				if(index === this.expandIndex) {
-					this.expandIndex = -1;
-				} else {
-					this.expandIndex = index;
-				}
+				this.expandIndex = index === this.expandIndex ? -1 : index;
 			}
 		}
 	}
