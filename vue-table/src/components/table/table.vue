@@ -1,29 +1,27 @@
 <template>
 	<div>
-		<render :row="row" :render="row.render" :index="index"></render>
+		<table>
+			<table-head :columns="columns" :datas="datas"></table-head>
+			<table-body :columns="columns" :datas="datas"></table-body>
+		</table>
 	</div>
 </template>
 
 <script>
-	import render from './render.js';
+	import tableHead from './table-head.vue';
+	import tableBody from './table-body.vue';
+
 	export default {
 		components: {
-			render
+			'table-head': tableHead,
+			'table-body': tableBody
+		},
+		props: {
+			columns: Array,
+			datas: Array
 		},
 		data () {
 			return {
-				index: 1,
-				row: {
-					render: (h, params) => {
-						return h('button',{
-							on: {
-								click: () => {
-									console.log(this.index);
-								}
-							}
-						}, '测试动态渲染按钮');
-					}
-				}
 			}
 		}
 	}
