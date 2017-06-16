@@ -15,5 +15,5 @@
 			datas: Array
 		}
 	}
-	
+
 </script>

@@ -29,7 +29,13 @@ export default {
 					title: '操作',
 					render: (h, params) => {
 						return h('div', [
-							h('button', {}, '编辑'),
+							h('button', {
+								on: {
+									click: () => {
+										console.log(params.index);
+									}
+								}
+							}, '编辑'),
 							h('button', {}, '删除')
 						]);
 					}

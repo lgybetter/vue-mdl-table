@@ -1,8 +1,8 @@
 <template>
 	<tbody>
-		<tr v-for="data in datas">
+		<tr v-for="(data, index) in datas">
 			<td v-for="column in columns">
-				<cell :column="column" :data="data"></cell>
+				<cell :column="column" :data="data" :index="index"></cell>
 			</td>
 		</tr>
 	</tbody>
